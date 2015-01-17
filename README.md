@@ -24,7 +24,13 @@ benchmark('single quotes', function () {
 
 When you run this code via `php quote_benchmark.php` it will output the names of
 your benchmarks along with the amount of milliseconds it took to execute the
-code.
+code. Below, there's a sample output that you'd get when running
+`php example.php`:
+
+```
+single quotes: 2.6323640346527 ms
+double quotes: 2.6998770236969 ms
+```
 
 ## Contributing
 Although simple, this single function could be extended a lot. I would love to
