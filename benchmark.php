@@ -10,4 +10,3 @@ function benchmark($name, callable $code, $times = 1000000)
 
   echo $name . ': ' . (microtime(true) - $startTime) . " ms\n";
 }
-
