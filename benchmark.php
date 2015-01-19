@@ -4,7 +4,7 @@ function benchmark($name, callable $code, $times = 1000000)
 {
   $startTime = microtime(true);
 
-  for ($i = 0; $i <= $times; $i ++) {
+  for ($i = 0; $i <= $times; ++$i) {
     $code();
   }
 
