@@ -43,7 +43,7 @@ class TextPrinter implements ResultPrinterInterface
         $runtime = round($result['runtime'], 2) . 'ms';
 
         echo sprintf(
-            '| %s | %s |',
+            "| %s | %s |\n",
             str_pad($name, 20, ' '),
             str_pad($runtime, 15, ' ')
         );

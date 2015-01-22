@@ -9,8 +9,8 @@
   "description": "PHPBench is a simple tool to benchmark your code.",
   "tags": "bench,benchmark,php,time,stopwatch,measure",
   "autoload": {
-    "psr-3": {
-      "Jrnv\\LeakyBucket": "src/"
+    "psr-4": {
+      "Jrnv\\LeakyBucket\\": "src/Jrnv/"
     }
   }
 }
