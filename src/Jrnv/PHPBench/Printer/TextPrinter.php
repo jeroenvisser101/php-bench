@@ -8,7 +8,7 @@ use Jrnv\PHPBench\Contract\ResultPrinterInterface;
  *
  * @author Jeroen Visser <jeroenvisser101@gmail.com>
  */
-class TestPrinter implements ResultPrinterInterface
+class TextPrinter implements ResultPrinterInterface
 {
 
     /**
@@ -42,7 +42,7 @@ class TestPrinter implements ResultPrinterInterface
         $name = $result['name'];
         $runtime = round($result['runtime'], 2) . 'ms';
 
-        return sprintf(
+        echo sprintf(
             '| %s | %s |',
             str_pad($name, 20, ' '),
             str_pad($runtime, 15, ' ')

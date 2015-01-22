@@ -1,0 +1,16 @@
+{
+  "name": "jeroenvisser101/php-bench",
+  "author": [
+    {
+      "name": "Jeroen Visser",
+      "email": "jeroenvisser101@gmail.com"
+    }
+  ],
+  "description": "PHPBench is a simple tool to benchmark your code.",
+  "tags": "bench,benchmark,php,time,stopwatch,measure",
+  "autoload": {
+    "psr-3": {
+      "Jrnv\\LeakyBucket": "src/"
+    }
+  }
+}

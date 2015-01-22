@@ -1,6 +1,7 @@
 <?php
 namespace Jrnv\PHPBench;
 use Jrnv\PHPBench\Contract\ResultPrinterInterface;
+use Jrnv\PHPBench\Printer\TextPrinter;
 
 /**
  * Benchmark
@@ -16,11 +17,13 @@ class Benchmark
     /**
      * Class constructor.
      *
-     * @param int|null $cycles Amount of cycles to run the benchmarks.
+     * @param int|null                        $cycles        Amount of cycles to run the benchmarks.
+     * @param Contract\ResultPrinterInterface $resultPrinter The printer to print the results
      */
-    public function __construct($cycles = null)
+    public function __construct($cycles = null, ResultPrinterInterface $resultPrinter = null)
     {
         $this->cycles = $cycles ?: $this->cycles;
+        $this->resultPrinter = $resultPrinter ?: new TextPrinter();
     }
 
     /**
@@ -40,31 +43,34 @@ class Benchmark
     /**
      * Runs the benchmark, returns results.
      *
+     * @param bool $print Indicates wether this function should also print the results
+     *
      * @return array
      */
-    public function run()
+    public function run($print = true)
     {
         // Loop through all the benchmark's variants
         foreach ($this->variants as $variant) {
             $runtime = $this->runVariant($variant);
 
             // Add the result to the results array
-            $this->results = [
+            $this->results[] = [
                 'name'    => $variant['name'],
                 'runtime' => $runtime
             ];
         }
+
+        $this->printResults();
 
         return $this->results;
     }
 
     /**
      * Prints the results using the given resultPrinter
-     * @param Contract\ResultPrinterInterface $resultPrinter The printer to use
      */
-    public function printResults(ResultPrinterInterface $resultPrinter = null)
+    protected function printResults()
     {
-        $resultPrinter = $resultPrinter ?: new TextPrinter;
+        $this->resultPrinter->printResults($this->results);
     }
 
     /**
