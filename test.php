@@ -13,7 +13,7 @@ $benchmark->addVariant(
 );
 
 $benchmark->addVariant(
-    'double quites',
+    'double quotes',
     function () {
         $i = "";
     }
